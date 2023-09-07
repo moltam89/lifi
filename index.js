@@ -1,4 +1,6 @@
 require('dotenv').config();
+const PUNK_ADDR = process.env.PUNK_ADDR;
+const PUNK_PK = process.env.PUNK_PK;
 
 const axios = require("axios");
 const { BigNumber, ethers, utils, Wallet } = require("ethers");
@@ -19,7 +21,7 @@ const getQuote = async (fromChain, toChain, fromToken, toToken, fromAmount, from
     return result.data;
 }
 
-const PUNK_ADDR = process.env.PUNK_ADDR;
+
 
 
 const fromChain = 'DAI';
@@ -32,10 +34,8 @@ const fromAddress = PUNK_ADDR;
 
 
 const main = async () => {
-	console.log("PUNK_ADDR", PUNK_ADDR);
-
-	//const quote = await getQuote(fromChain, toChain, fromToken, toToken, fromAmount, fromAddress);
-	//console.log("quote", quote);
+	const quote = await getQuote(fromChain, toChain, fromToken, toToken, fromAmount, fromAddress);
+	console.log("quote", quote);
 }
 
 main();
