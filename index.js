@@ -30,17 +30,23 @@ const getQuote = async (fromChain, toChain, fromToken, toToken, fromAmount, from
     return result.data;
 }
 
-
-
-
 const fromChain = 'POL';
-const fromToken = 'USDC';
+const fromToken = 'MATIC';
 const toChain = 'DAI';
-const toToken = 'USDT';
-const fromAmount = '1000000';
+const toToken = 'DAI';
+const fromAmount = '100000000000000000';
 const fromAddress = PUNK_ADDR;
 
 const main = async () => {
+	const quote = await getQuote(fromChain, toChain, fromToken, toToken, fromAmount, fromAddress);
+	console.log("quote", quote);
+	//console.log("quote.includedSteps.estimate", quote.includedSteps[0].estimate);
+	//console.log("quote.includedSteps.toolDetails", quote.includedSteps[0].toolDetails);
+
+	//const tx = await punkWallet.sendTransaction(quote.transactionRequest);
+	//console.log("tx", tx);
+
+/*	Using the SDK
 	const routeOptions = {
 	    slippage: 3 / 100, // 3%
 	    order: 'RECOMMENDED'
@@ -72,14 +78,8 @@ const main = async () => {
 	const txRoute = await lifi.executeRoute(punkWallet, route, {...updateCallback});
 
 	console.log("txRoute", txRoute);
-
-	//const quote = await getQuote(fromChain, toChain, fromToken, toToken, fromAmount, fromAddress);
-	//console.log("quote", quote);
-	//console.log("quote.includedSteps.estimate", quote.includedSteps[0].estimate);
-	//console.log("quote.includedSteps.toolDetails", quote.includedSteps[0].toolDetails);
-
-	//const tx = await punkWallet.sendTransaction(quote.transactionRequest);
-	//console.log("tx", tx);
+*/
+	
 }
 
 main();
