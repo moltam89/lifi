@@ -103,7 +103,7 @@ const getRoutes = () => {
 			fromAmount: "10000000000",
 			fromTokenAddress: "0xdac17f958d2ee523a2206206994597c13d831ec7",
 			toTokenAddress: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-			//options
+			options
 		},
 	/*
 		{
@@ -127,7 +127,12 @@ const fromAddress = PUNK_ADDR;
 
 const main = async () => {
 	const advancedRoutes = await getRoutes();
-	console.log("advancedRoutes", advancedRoutes.data);
+	//console.log("advancedRoutes", advancedRoutes.data);
+
+	for (const route of advancedRoutes.data.routes) {
+		console.log("route", route);
+	}
+
 	return;
 
 
